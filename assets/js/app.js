@@ -39,5 +39,8 @@ const app = new Vue({
             this.trashed.splice(i, 1);
             this.tasks.push(item);
         },
+        emptyBin() {
+            this.trashed = [];
+        },
     },
 });

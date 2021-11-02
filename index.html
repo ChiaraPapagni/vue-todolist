@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Vue To Do List</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -61,7 +61,7 @@
                 <!-- /.completed -->
 
                 <div class="trashed" v-if="trashed.length > 0">
-                    <p class="title">Trashed</p>
+                    <p class="title">Trashed <a href="#" @click="emptyBin">(Empty bin)</a></p>
                     <div class="item" v-for="(item, i) in trashed">
                         <p>{{item}}</p>
                         <div class="icons">
@@ -72,6 +72,12 @@
                 <!-- /.trashed -->
             </div>
             <!-- /.row -->
+
+            <div v-if="tasks.length == 0 && trashed.length == 0" class="message">
+                <p>Complimenti hai finito tutte le tue task!</p>
+                <i class="far fa-thumbs-up fa-lg"></i>
+            </div>
+            <!-- /.message -->
 
             <div class="error" v-show="error">
                 <i class="fas fa-exclamation-triangle fa-lg"></i>
