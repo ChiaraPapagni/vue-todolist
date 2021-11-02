@@ -15,6 +15,7 @@ const app = new Vue({
         },
         addItem() {
             this.tasks.push(this.newItem);
+            this.newItem = '';
         },
     },
 });
