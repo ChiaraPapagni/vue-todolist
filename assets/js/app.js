@@ -8,13 +8,19 @@ const app = new Vue({
             'Fare il bucato'
         ],
         newItem: '',
+        error: false,
     },
     methods: {
         removeItem(i) {
             this.tasks.splice(i, 1);
         },
         addItem() {
-            this.tasks.push(this.newItem);
+            if (this.newItem.length > 5) {
+                this.tasks.push(this.newItem);
+                this.error = false;
+            } else {
+                this.error = true;
+            }
             this.newItem = '';
         },
     },

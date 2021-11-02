@@ -17,6 +17,7 @@
     <div id="app">
         <input type="text" v-model="newItem">
         <button @click="addItem">Add</button>
+        <div class="error" v-show="error">Devi inserire una task di almeno 6 caratteri</div>
 
         <div class="tasks" v-if="tasks.length > 0">
             <div class="item" v-for="(item, i) in tasks">
