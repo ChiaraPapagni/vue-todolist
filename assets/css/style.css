@@ -105,6 +105,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: baseline;
+    margin-top: 1rem;
     color: #192741;
     font-weight: bold;
 }
