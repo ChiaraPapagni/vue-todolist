@@ -14,9 +14,9 @@
 </head>
 
 <body>
-    <div id="app" class="container">
+    <div id="app">
 
-        <header id="site_header">
+        <header id="site_header" class="container">
             <div class="logo">
                 <img :src="logoBoolean">
             </div>
@@ -28,23 +28,57 @@
                 <input type="text" placeholder="Nuovo Todo" v-model="newItem" @keyup.enter="addItem">
                 <button @click="addItem">Aggiungi</button>
             </div>
+            <!-- /.new_item -->
 
-            <div class="tasks" v-if="tasks.length > 0">
-                <div class="item" v-for="(item, i) in tasks">
-                    {{item}}
-                    <i class="fas fa-times" @click="removeItem(i)"></i>
+            <div class="row">
+                <div class="tasks" v-if="tasks.length > 0">
+                    <p class="title">ToDo List</p>
+                    <div class="item" v-for="(item, i) in tasks">
+                        <p>{{item}}</p>
+                        <div class="icons">
+                            <i class="fas fa-check" @click="completedTask(item, i)"></i>
+                            <i class="fas fa-trash" @click="removeItem(item, i)"></i>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <!-- 
+                <div v-else class="message">
+                    <p>Complimenti hai finito tutte le tue task!</p>
+                    <i class="far fa-thumbs-up fa-lg"></i>
+                </div> 
+                -->
+                <!-- /.tasks -->
 
-            <div v-else class="message">
-                <p>Complimenti hai finito tutte le tue task!</p>
-                <i class="far fa-thumbs-up fa-lg"></i>
+                <div class="completed" v-if="completed.length > 0">
+                    <p class="title">Completed</p>
+                    <div class="item" v-for="(item, i) in completed">
+                        <p>{{item}}</p>
+                        <div class="icons">
+                            <i class="fas fa-redo" @click="restoreItemFromComplete(item, i)"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.completed -->
+
+                <div class="trashed" v-if="trashed.length > 0">
+                    <p class="title">Trashed</p>
+                    <div class="item" v-for="(item, i) in trashed">
+                        <p>{{item}}</p>
+                        <div class="icons">
+                            <i class="fas fa-trash-restore" @click="restoreItemFromTrash(item, i)"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.trashed -->
             </div>
+            <!-- /.row -->
+
             <div class="error" v-show="error">
                 <i class="fas fa-exclamation-triangle fa-lg"></i>
                 <p>Devi inserire una task di almeno 6 caratteri</p>
             </div>
-            <!-- /.tasks -->
+            <!-- /.error -->
+
         </main>
         <!-- /#site_main -->
 

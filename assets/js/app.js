@@ -10,11 +10,10 @@ const app = new Vue({
         newItem: '',
         error: false,
         logoBoolean: 'https://www.boolean.careers/images/misc/logo.png',
+        completed: [],
+        trashed: [],
     },
     methods: {
-        removeItem(i) {
-            this.tasks.splice(i, 1);
-        },
         addItem() {
             if (this.newItem.length > 5) {
                 this.tasks.push(this.newItem);
@@ -23,6 +22,22 @@ const app = new Vue({
                 this.error = true;
             }
             this.newItem = '';
+        },
+        completedTask(item, i) {
+            this.completed.push(item);
+            this.tasks.splice(i, 1);
+        },
+        removeItem(item, i) {
+            this.tasks.splice(i, 1);
+            this.trashed.push(item);
+        },
+        restoreItemFromComplete(item, i) {
+            this.completed.splice(i, 1);
+            this.tasks.push(item);
+        },
+        restoreItemFromTrash(item, i) {
+            this.trashed.splice(i, 1);
+            this.tasks.push(item);
         },
     },
 });

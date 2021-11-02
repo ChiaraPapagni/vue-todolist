@@ -17,6 +17,11 @@ body {
     margin: auto;
 }
 
+.title {
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+
 
 /***************
  Header 
@@ -58,7 +63,27 @@ body {
     filter: opacity(0.7);
 }
 
+.row {
+    width: fit-content;
+    display: flex;
+    gap: 1rem;
+    margin: auto;
+}
+
 .tasks {
+    width: 350px;
+}
+
+.completed,
+.trashed {
+    width: 250px;
+}
+
+.tasks,
+.completed,
+.trashed {
+    height: 300px;
+    margin: auto;
     background-color: #F5F7F7;
     border-radius: 10px;
     padding: 2rem;
@@ -72,22 +97,31 @@ body {
 }
 
 .item i {
+    padding: 0 0.5rem;
     cursor: pointer;
 }
 
 .message {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: baseline;
     color: #192741;
     font-weight: bold;
 }
 
+.message p {
+    margin-right: 0.5rem;
+}
+
 .error {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: baseline;
     padding-top: 1rem;
     color: crimson;
     font-weight: bold;
+}
+
+.error p {
+    margin-left: 0.5rem;
 }
