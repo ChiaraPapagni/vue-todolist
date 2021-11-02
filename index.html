@@ -15,7 +15,7 @@
 
 <body>
     <div id="app">
-        <input type="text" v-model="newItem">
+        <input type="text" v-model="newItem" @keyup.enter="addItem">
         <button @click="addItem">Add</button>
         <div class="error" v-show="error">Devi inserire una task di almeno 6 caratteri</div>
 
