@@ -1,0 +1,93 @@
+/* Reset Rules */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/***************
+ Utility 
+***************/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: 360px;
+    margin: auto;
+}
+
+
+/***************
+ Header 
+***************/
+.logo {
+    text-align: center;
+    padding: 1rem;
+}
+
+.logo img {
+    width: 300px;
+}
+
+
+/***************
+ Main 
+***************/
+.new_item {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.new_item input {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: 1px solid #000;
+    margin-right: 0.5rem;
+}
+
+.new_item button {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.new_item button:hover {
+    filter: opacity(0.7);
+}
+
+.tasks {
+    background-color: #F5F7F7;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #DADEE1;
+}
+
+.item i {
+    cursor: pointer;
+}
+
+.message {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    color: #192741;
+    font-weight: bold;
+}
+
+.error {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    padding-top: 1rem;
+    color: crimson;
+    font-weight: bold;
+}

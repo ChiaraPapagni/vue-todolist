@@ -14,22 +14,40 @@
 </head>
 
 <body>
-    <div id="app">
-        <input type="text" v-model="newItem" @keyup.enter="addItem">
-        <button @click="addItem">Add</button>
-        <div class="error" v-show="error">Devi inserire una task di almeno 6 caratteri</div>
+    <div id="app" class="container">
 
-        <div class="tasks" v-if="tasks.length > 0">
-            <div class="item" v-for="(item, i) in tasks">
-                {{item}}
-                <i class="far fa-times-circle" @click="removeItem(i)"></i>
+        <header id="site_header">
+            <div class="logo">
+                <img :src="logoBoolean">
             </div>
-        </div>
+        </header>
+        <!-- /#site_header -->
 
-        <div v-else>
-            <p>Non ci sono altre tasks</p>
-        </div>
-        <!-- /.tasks -->
+        <main id="site_main">
+            <div class="new_item">
+                <input type="text" placeholder="Nuovo Todo" v-model="newItem" @keyup.enter="addItem">
+                <button @click="addItem">Aggiungi</button>
+            </div>
+
+            <div class="tasks" v-if="tasks.length > 0">
+                <div class="item" v-for="(item, i) in tasks">
+                    {{item}}
+                    <i class="fas fa-times" @click="removeItem(i)"></i>
+                </div>
+            </div>
+
+            <div v-else class="message">
+                <p>Complimenti hai finito tutte le tue task!</p>
+                <i class="far fa-thumbs-up fa-lg"></i>
+            </div>
+            <div class="error" v-show="error">
+                <i class="fas fa-exclamation-triangle fa-lg"></i>
+                <p>Devi inserire una task di almeno 6 caratteri</p>
+            </div>
+            <!-- /.tasks -->
+        </main>
+        <!-- /#site_main -->
+
     </div>
     <!-- /#app -->
 
