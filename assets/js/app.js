@@ -40,7 +40,8 @@ const app = new Vue({
             this.tasks.push(item);
         },
         emptyBin() {
-            const confirm = prompt('This will delete all tasks forever! Confirm [Y/N]').toLowerCase();
+            const confirm = prompt(`This will delete all tasks forever! 
+Are you sure you want to proceed? [Y/N]`).toLowerCase();
             if (confirm === 'y') {
                 this.trashed = [];
             }
