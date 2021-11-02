@@ -3,15 +3,18 @@ const app = new Vue({
     el: '#app',
     data: {
         tasks: [
-            'Task 1',
-            'Task 2',
-            'Task 3',
-            'Task 4'
+            'Fare i compiti',
+            'Fare la spesa',
+            'Fare il bucato'
         ],
+        newItem: '',
     },
     methods: {
         removeItem(i) {
             this.tasks.splice(i, 1);
+        },
+        addItem() {
+            this.tasks.push(this.newItem);
         },
     },
 });
